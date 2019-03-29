@@ -28,7 +28,6 @@ public class RPCProtocolPerformer implements ProtocolPerformer {
 
             protocol = new TBinaryProtocol(transport);
             client = new WinAPIHandbookService.Client(protocol);
-
         } catch (Exception e) {
             log.error(e.getMessage());
             showErrorAlert("Server error", e.getMessage());
@@ -37,7 +36,6 @@ public class RPCProtocolPerformer implements ProtocolPerformer {
 
     public List<WinAPIFunction> getAllFunctions() {
         List<WinAPIFunction> returnedFunctions = new ArrayList<>();
-
         try {
             returnedFunctions = client.getAllFunctions();
         } catch (Exception e) {
@@ -82,7 +80,6 @@ public class RPCProtocolPerformer implements ProtocolPerformer {
         alert.setTitle("Error");
         alert.setHeaderText(header);
         alert.setContentText(content);
-
         alert.showAndWait();
     }
 }

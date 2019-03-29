@@ -8,8 +8,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import thrift.WinAPIFunction;
@@ -19,7 +17,7 @@ class InsertDialog extends Stage {
     public InsertDialog(Stage owner, Controller holder) {
         super();
         initOwner(owner);
-        setTitle("Add record");
+        setTitle("Добавление записи");
         initModality(Modality.WINDOW_MODAL);
         Group root = new Group();
         Scene scene = new Scene(root, 700, 450, Color.WHITE);
@@ -41,10 +39,10 @@ class InsertDialog extends Stage {
         final TextField paramsFld = new TextField();
         gridpane.add(paramsFld, 0, 4);
 
-        Label returnValues = new Label("Return values: ");
-        gridpane.add(returnValues, 0, 5);
-        final TextField returnValuesFld = new TextField();
-        gridpane.add(returnValuesFld, 0, 6);
+        Label returnValue = new Label("Return value: ");
+        gridpane.add(returnValue, 0, 5);
+        final TextField returnValueFld = new TextField();
+        gridpane.add(returnValueFld, 0, 6);
 
         Label description = new Label("Description: ");
         gridpane.add(description, 1, 1);
@@ -60,7 +58,7 @@ class InsertDialog extends Stage {
                         "Data error",
                         "Field \"Name\" could not be empty");
             } else {
-                buildWinAPIFunctionObject(holder, nameFld, paramsFld, returnValuesFld, descriptionArea);
+                buildWinAPIFunctionObject(holder, nameFld, paramsFld, returnValueFld, descriptionArea);
                 close();
             }
         });
@@ -75,11 +73,11 @@ class InsertDialog extends Stage {
         root.getChildren().add(gridpane);
     }
 
-    private void buildWinAPIFunctionObject(Controller holder, TextField nameFld, TextField paramsFld, TextField returnValuesFld, TextArea descriptionArea) {
+    private void buildWinAPIFunctionObject(Controller holder, TextField nameFld, TextField paramsFld, TextField returnValueFld, TextArea descriptionArea) {
         final WinAPIFunction func = new WinAPIFunction();
         func.setName(nameFld.getText());
         func.setParams(paramsFld.getText());
-        func.setReturnValue(returnValuesFld.getText());
+        func.setReturnValue(returnValueFld.getText());
         func.setDescription(descriptionArea.getText());
         holder.addRow(func);
     }

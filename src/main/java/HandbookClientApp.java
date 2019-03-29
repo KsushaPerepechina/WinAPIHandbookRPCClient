@@ -12,7 +12,7 @@ public class HandbookClientApp extends Application {
     public void start(Stage primaryStage) {
         try {
             Parent root = FXMLLoader.load(HandbookClientApp.class.getResource("form.fxml"));
-            primaryStage.setTitle("WinAPI Handbook");
+            primaryStage.setTitle("Справочник по функциям WinAPI");
             primaryStage.setScene(new Scene(root, 800, 800));
             primaryStage.show();
         }

@@ -20,7 +20,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    private final String DEFAULT_SERVER = "127.0.0.1:2000";
+    private final String DEFAULT_SERVER = "0.0.0.0:12000";
     private String serverAddress = DEFAULT_SERVER;
 
     private static final Logger log = LogManager.getLogger(HandbookClientApp.class);
@@ -33,7 +33,7 @@ public class Controller implements Initializable {
     @FXML
     TableColumn iParams;
     @FXML
-    TableColumn iReturnValues;
+    TableColumn iReturnValue;
     @FXML
     TableColumn iDescription;
 
@@ -55,9 +55,9 @@ public class Controller implements Initializable {
                 (EventHandler<TableColumn.CellEditEvent<WinAPIFunction, String>>) t -> t.getTableView().getItems().get(
                         t.getTablePosition().getRow()).setParams(t.getNewValue())
         );
-        iReturnValues.setCellValueFactory(new PropertyValueFactory<WinAPIFunction, String>("return values"));
-        iReturnValues.setCellFactory(cellFactory);
-        iReturnValues.setOnEditCommit(
+        iReturnValue.setCellValueFactory(new PropertyValueFactory<WinAPIFunction, String>("returnValue"));
+        iReturnValue.setCellFactory(cellFactory);
+        iReturnValue.setOnEditCommit(
                 (EventHandler<TableColumn.CellEditEvent<WinAPIFunction, String>>) t -> t.getTableView().getItems().get(
                         t.getTablePosition().getRow()).setReturnValue(t.getNewValue())
         );

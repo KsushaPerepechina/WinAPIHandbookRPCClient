@@ -15,19 +15,19 @@
     <BorderPane id="main_pane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <top>
             <MenuBar id="menu_bar" BorderPane.alignment="CENTER">
-                <Menu mnemonicParsing="false" text="Table">
-                    <MenuItem mnemonicParsing="false" onAction="#handleAddAction" text="Add">
+                <Menu mnemonicParsing="false" text="Справочник">
+                    <MenuItem mnemonicParsing="false" onAction="#handleAddAction" text="Добавление">
                         </MenuItem>
-                    <MenuItem mnemonicParsing="false" onAction="#handleRemoveAction" text="Remove">
+                    <MenuItem mnemonicParsing="false" onAction="#handleRemoveAction" text="Удаление">
                         </MenuItem>
-                    <MenuItem mnemonicParsing="false" onAction="#handleUpdateAction" text="Update">
+                    <MenuItem mnemonicParsing="false" onAction="#handleUpdateAction" text="Обновление">
                         </MenuItem>
                     <SeparatorMenuItem mnemonicParsing="false" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleSynchronizeAction" text="Synchronize">
+                    <MenuItem mnemonicParsing="false" onAction="#handleSynchronizeAction" text="Синхронизация">
                     </MenuItem>
                 </Menu>
-                <Menu id="protocol_menu" mnemonicParsing="false" text="Server">
-                    <MenuItem mnemonicParsing="false" onAction="#handleConnectAction" text="Connect">
+                <Menu id="protocol_menu" mnemonicParsing="false" text="Сервер">
+                    <MenuItem mnemonicParsing="false" onAction="#handleConnectAction" text="Соединение">
                         </MenuItem>
                 </Menu>
             </MenuBar>
@@ -35,10 +35,10 @@
         <center>
             <TableView fx:id="winAPIFunctionsTable" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" tableMenuButtonVisible="true" BorderPane.alignment="CENTER">
                 <columns>
-                    <TableColumn fx:id="iName" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" resizable="false" text="Function" />
-                    <TableColumn fx:id="iParams" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" resizable="false" text="Params" />
-                    <TableColumn fx:id="iReturnValues" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" resizable="false" text="Return values" />
-                    <TableColumn fx:id="iDescription" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="350.0" resizable="false" text="Description" />
+                    <TableColumn fx:id="iName" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" resizable="false" text="Название функции" />
+                    <TableColumn fx:id="iParams" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" resizable="false" text="Параметры" />
+                    <TableColumn fx:id="iReturnValue" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWi  dth="150.0" resizable="false" text="Возвращаемое значение" />
+                    <TableColumn fx:id="iDescription" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="350.0" resizable="false" text="Описание" />
                 </columns>
                 <padding>
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
