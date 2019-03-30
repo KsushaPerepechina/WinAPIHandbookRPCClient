@@ -37,7 +37,7 @@
                 <columns>
                     <TableColumn fx:id="iName" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" resizable="false" text="Название функции" />
                     <TableColumn fx:id="iParams" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" resizable="false" text="Параметры" />
-                    <TableColumn fx:id="iReturnValue" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWi  dth="150.0" resizable="false" text="Возвращаемое значение" />
+                    <TableColumn fx:id="iReturnValue" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" resizable="false" text="Возвращаемое значение" />
                     <TableColumn fx:id="iDescription" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="350.0" resizable="false" text="Описание" />
                 </columns>
                 <padding>

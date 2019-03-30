@@ -14,13 +14,10 @@ class EditingCell extends TableCell<XYChart.Data, String> {
 
     @Override
     public void startEdit() {
-
         super.startEdit();
-
         if (textField == null) {
             createTextField();
         }
-
         setGraphic(textField);
         setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
         textField.selectAll();
@@ -29,7 +26,6 @@ class EditingCell extends TableCell<XYChart.Data, String> {
     @Override
     public void cancelEdit() {
         super.cancelEdit();
-
         setText(String.valueOf(getItem()));
         setContentDisplay(ContentDisplay.TEXT_ONLY);
     }
@@ -38,7 +34,6 @@ class EditingCell extends TableCell<XYChart.Data, String> {
     public void updateItem(String item, boolean empty) {
         super.updateItem(item, empty);
         this.setItem(item);
-
         if (empty) {
             setText(null);
             setGraphic(null);
