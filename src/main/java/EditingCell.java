@@ -12,6 +12,9 @@ class EditingCell extends TableCell<XYChart.Data, String> {
         this.controller = controller;
     }
 
+    /**
+     * Редактирование записи таблицы
+     */
     @Override
     public void startEdit() {
         super.startEdit();
@@ -23,6 +26,9 @@ class EditingCell extends TableCell<XYChart.Data, String> {
         textField.selectAll();
     }
 
+    /**
+     * Отмена редактирования записи
+     */
     @Override
     public void cancelEdit() {
         super.cancelEdit();
@@ -30,6 +36,11 @@ class EditingCell extends TableCell<XYChart.Data, String> {
         setContentDisplay(ContentDisplay.TEXT_ONLY);
     }
 
+    /**
+     * Обновление записи
+     * @param item - обновляемая запись
+     * @param empty - флаг пустоты ячейки
+     */
     @Override
     public void updateItem(String item, boolean empty) {
         super.updateItem(item, empty);
@@ -51,6 +62,9 @@ class EditingCell extends TableCell<XYChart.Data, String> {
         }
     }
 
+    /**
+     * Создание поля ввода
+     */
     private void createTextField() {
         textField = new TextField(getString());
         textField.setMinWidth(this.getWidth() - this.getGraphicTextGap()*2);

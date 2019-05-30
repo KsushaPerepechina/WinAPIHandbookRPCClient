@@ -6,6 +6,9 @@ import javafx.stage.Stage;
 
 import static java.lang.System.exit;
 
+/**
+ * Клиентское приложение для справочника
+ */
 public class HandbookClientApp extends Application {
 
     @Override

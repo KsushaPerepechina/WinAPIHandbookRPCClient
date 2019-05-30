@@ -27,8 +27,10 @@
                     </MenuItem>
                 </Menu>
                 <Menu id="protocol_menu" mnemonicParsing="false" text="Сервер">
-                    <MenuItem mnemonicParsing="false" onAction="#handleConnectAction" text="Соединение">
-                        </MenuItem>
+                    <MenuItem id="rpc_menu_item" mnemonicParsing="false" onAction="#handleRPCAction" text="RPC"></MenuItem>
+                    <MenuItem id="soap_menu_item" mnemonicParsing="false" onAction="#handleRPCAction" text="SOAP"></MenuItem>
+                    <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" onAction="#handleConnectAction" text="Соединение"></MenuItem>
                 </Menu>
             </MenuBar>
         </top>
@@ -50,6 +52,8 @@
                             <MenuItem mnemonicParsing="false" onAction="#handleRemoveAction" text="Remove" />
                             <MenuItem mnemonicParsing="false" onAction="#handleUpdateAction" text="Update" />
                             <SeparatorMenuItem mnemonicParsing="false" />
+                            <MenuItem mnemonicParsing="false" onAction="#handleRPCAction" text="RPC" />
+                            <MenuItem mnemonicParsing="false" onAction="#handleSOAPAction" text="SOAP" />
                             <MenuItem mnemonicParsing="false" onAction="#handleConnectAction" text="Connect" />
                         </items>
                     </ContextMenu>

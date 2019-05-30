@@ -72,6 +72,14 @@ class InsertDialog extends Stage {
         root.getChildren().add(gridpane);
     }
 
+    /**
+     * Конструирование объекта функции
+     * @param holder
+     * @param nameFld - поле имени
+     * @param paramsFld - поле параметров
+     * @param returnValueFld - поле возвращаемых значений
+     * @param descriptionArea - область описания
+     */
     private void buildWinAPIFunctionObject(Controller holder, TextField nameFld, TextField paramsFld, TextField returnValueFld, TextArea descriptionArea) {
         final WinAPIFunction func = new WinAPIFunction();
         func.setName(nameFld.getText());

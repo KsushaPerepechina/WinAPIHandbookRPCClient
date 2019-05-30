@@ -9,4 +9,3 @@ interface ProtocolPerformer {
     void update(WinAPIFunction func);
     void delete(WinAPIFunction func);
 }
-

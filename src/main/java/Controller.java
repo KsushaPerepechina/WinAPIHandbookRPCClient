@@ -26,19 +26,37 @@ public class Controller implements Initializable {
     private static final Logger log = LogManager.getLogger(HandbookClientApp.class);
     private ProtocolPerformer performer = new RPCProtocolPerformer();
 
+    /**
+     * Таблица, отображающая содержимое справочника
+     */
     @FXML
     TableView<WinAPIFunction> winAPIFunctionsTable;
+    /**
+     * Поле названия функции
+     */
     @FXML
     TableColumn iName;
+    /**
+     * Поле параметров функции
+     */
     @FXML
     TableColumn iParams;
+    /**
+     * Поле возвращаемого значения функции
+     */
     @FXML
     TableColumn iReturnValue;
+    /**
+     * Поле описания функции
+     */
     @FXML
     TableColumn iDescription;
 
     private final ObservableList<WinAPIFunction> data = FXCollections.observableArrayList();
 
+    /**
+     * Построение таблицы
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Callback<TableColumn, TableCell> cellFactory = p -> new EditingCell(this);
@@ -74,42 +92,85 @@ public class Controller implements Initializable {
         getAllData();
     }
 
+    /**
+     * Получение всех функций справочника
+     */
     void getAllData() {
         List<WinAPIFunction> functions = performer.getAllFunctions();
-        if(functions != null) {
-            data.clear();
-            data.addAll(functions);
-        }
+        data.clear();
+        data.addAll(functions);
     }
 
+    /**
+     * Добавление новой функции в справочник
+     * @param func - добавляемая функция
+     */
     void addRow(WinAPIFunction func) {
         performer.insert(func);
+        getAllData();
     }
 
+    /**
+     * Извлечение функции из справочника
+     * @param func - извлекаемая функция
+     */
     void removeRow(WinAPIFunction func) {
         performer.delete(func);
+        getAllData();
     }
 
+    /**
+     * Обновление функции в справочнике
+     * @param func - обновляемая функция
+     */
     void updateRow(WinAPIFunction func) {
         performer.update(func);
+        getAllData();
     }
 
+    /**
+     * Синхронизация содержимого таблицы с БД
+     */
     @FXML
     private void handleSynchronizeAction() {
         getAllData();
     }
 
+    /**
+     * Попытка соединения с сервером
+     */
     @FXML
     private void handleConnectAction() {
         showConnectionDialog();
         getAllData();
     }
 
+    /**
+     * Переключение в режим RPC
+     */
+    @FXML
+    private void handleRPCAction() {
+    }
+
+    /**
+     * Переключение в режим SOAP
+     */
+    @FXML
+    private void handleSOAPAction() {
+        performer = new RPCProtocolPerformer();
+    }
+
+    /**
+     * Добавление новой записи в таблицу
+     */
     @FXML
     private void handleAddAction() {
         showAddDialog();
     }
 
+    /**
+     * Открытие диалога добавления новой записи
+     */
     private void showAddDialog() {
         InsertDialog dialog;
         try {
@@ -125,16 +186,25 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * Извлечение записи из таблицы
+     */
     @FXML
     private void handleRemoveAction() {
         removeRow(winAPIFunctionsTable.getSelectionModel().getSelectedItem());
     }
 
+    /**
+     * Обновление записи в таблице
+     */
     @FXML
     private void handleUpdateAction() {
         updateRow(winAPIFunctionsTable.getSelectionModel().getSelectedItem());
     }
 
+    /**
+     * Отображение диалога подключения к серверу
+     */
     private void showConnectionDialog() {
         TextInputDialog dialog = new TextInputDialog(serverAddress);
         dialog.setTitle("Connect");
@@ -147,7 +217,13 @@ public class Controller implements Initializable {
         });
     }
 
+    /**
+     * Отображение окна ошибки
+     * @param header - заголовок окна
+     * @param content - текст ошибки
+     */
     void showErrorAlert(String header, String content) {
         RPCProtocolPerformer.showErrorAlert(header, content);
     }
+
 }

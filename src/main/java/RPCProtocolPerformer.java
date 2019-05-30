@@ -1,4 +1,14 @@
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.thrift.protocol.TBinaryProtocol;
@@ -16,7 +26,12 @@ public class RPCProtocolPerformer implements ProtocolPerformer {
     private TTransport transport;
     private TProtocol protocol;
     private WinAPIHandbookService.Client client;
+    private static boolean option;
 
+    /**
+     * Попытка соединения с сервером
+     * @param address - сетевой адрес сервера
+     */
     public void connect(String address) {
         try {
             String[] tokens = address.split(":");
@@ -34,6 +49,10 @@ public class RPCProtocolPerformer implements ProtocolPerformer {
         }
     }
 
+    /**
+     * Получение всех функций
+     * @return список функций
+     */
     public List<WinAPIFunction> getAllFunctions() {
         List<WinAPIFunction> returnedFunctions = new ArrayList<>();
         try {
@@ -45,6 +64,10 @@ public class RPCProtocolPerformer implements ProtocolPerformer {
         return returnedFunctions;
     }
 
+    /**
+     * Добавление новой функции
+     * @param func - добавляемая функция
+     */
     @Override
     public void insert(WinAPIFunction func) {
         try {
@@ -55,6 +78,10 @@ public class RPCProtocolPerformer implements ProtocolPerformer {
         }
     }
 
+    /**
+     * Удаление функции
+     * @param func - удаляемая функция
+     */
     @Override
     public void delete(WinAPIFunction func) {
         try {
@@ -65,6 +92,10 @@ public class RPCProtocolPerformer implements ProtocolPerformer {
         }
     }
 
+    /**
+     * Обновление функции
+     * @param func - обновляемая функция
+     */
     @Override
     public void update(WinAPIFunction func) {
         try {
@@ -75,6 +106,11 @@ public class RPCProtocolPerformer implements ProtocolPerformer {
         }
     }
 
+    /**
+     * Отображение окна ошибки
+     * @param header - заголовок ошибки
+     * @param content - текст ошибки
+     */
     static void showErrorAlert(String header, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
